@@ -17,6 +17,9 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -36,6 +39,12 @@ public class BookingController {
     @GetMapping("/get-all")
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
+    }
+    
+    @PostMapping("/add")
+    public Booking addBooking(@RequestParam Long clientId, @RequestParam Long unitId, @RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
+        Booking newBooking = bookingService.bookUnit(null, null, null, null);
+        return newBooking;
     }
     
 }
