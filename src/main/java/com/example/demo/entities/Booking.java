@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Booking {
     private LocalDate endDate;
     @Enumerated(EnumType.STRING)
     private Status status;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
     private Payment payment;
 }
