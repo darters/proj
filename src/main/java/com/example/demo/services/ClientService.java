@@ -16,7 +16,7 @@ public class ClientService {
     }
 
     public Client addClient(Client client) {
-        if (clientRepository.findById(client.getId()).isPresent()) {
+        if (clientRepository.findByEmail(client.getEmail()).isPresent()) {
             throw new IllegalArgumentException(client.getEmail() + " already exists");
         }
         return clientRepository.save(client);
